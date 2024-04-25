@@ -1,0 +1,8 @@
+.navbar{
+    background-color: aquamarine;
+    color: blue;
+}
+.navbar a {
+    color: blue;
+    font-size: 30px;
+}

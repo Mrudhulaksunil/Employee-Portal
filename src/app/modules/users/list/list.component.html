@@ -1,0 +1,68 @@
+<h1 class="text-center fw-bold text-primary my-4">Employee List</h1>
+<table border="1"  class="table align-middle shadow  w-75 p-5 m-5">
+  <thead>
+    <tr>
+      <!-- <th>Id</th> -->
+      <th>Employee Name</th>
+      <th>Contact No.</th>
+      <th>Email</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [hidden]="emp.id==='1'"  *ngFor="let emp of allEmployee">
+      <!-- <td>1</td> -->
+      <td>{{emp.name}}</td>
+      <td>{{emp.number}} </td>
+      <td>{{emp.email}} </td>
+      <td>{{emp.address}} </td>
+    </tr>
+   
+  </tbody>
+</table>
+
+<div class="text-center">
+  <button class="btn btn-success m-3 p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Add <i
+      class="fa-solid fa-user-plus ms-2"></i></button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 fw-bold text-primary" id="staticBackdropLabel">ADD EMPLOYEE PAGE</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form #addEmployee="ngForm" class="w-75 mx-4"  >
+          <!-- <input name="id" [(ngModel)]="user.id" type="text" #EmployeeId placeholder="Id"  class="form-control  mb-3"> -->
+          <!-- <div class="text-danger fw-bold my-2" *ngIf="EmployeeId.invalid&&E.touched" >*Invalid username</div> -->
+
+          <input required name="name" [(ngModel)]="employee.name" #EmployeeName="ngModel" type="text"
+            placeholder="Employee name" class="form-control  mb-3">
+          <div class="text-danger fw-bold my-2" *ngIf="EmployeeName.invalid&&EmployeeName.touched">*Invalid employee
+            name</div>
+
+          <input required pattern="[0-9]*" name="contact" [(ngModel)]="employee.number" #EmployeeContact="ngModel"
+            type="text" placeholder="Contact no." class="form-control  mb-3">
+          <div class="text-danger fw-bold my-2" *ngIf="EmployeeContact.invalid&&EmployeeContact.touched">*Invalid
+            contact number</div>
+
+          <input required email name="email" [(ngModel)]="employee.email" #Email="ngModel" type="text"
+            placeholder="Email" class="form-control  mb-3">
+          <div class="text-danger fw-bold my-2" *ngIf="Email.invalid&&Email.touched" >*Invalid email</div>
+
+          <input required name="address" [(ngModel)]="employee.address" #Address="ngModel" type="text"
+            placeholder="Address" class="form-control  mb-3">
+          <div class="text-danger fw-bold my-2" *ngIf="Address.invalid&&Address.touched" >*Invalid address</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button data-bs-dismiss="modal" type="submit" (click)="addEmployeeData()"class="btn btn-success" [disabled]="addEmployee.invalid" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+footer{
+    background-color: aquamarine;
+    margin-top: 400px;
+    color: blue;
+}
+footer a{
+    text-decoration: none;
+    color: blue;
+}

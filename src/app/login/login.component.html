@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-6">
+        <img src="https://cdn.dribbble.com/users/14268/screenshots/5583545/unold_icon1_animation_loop_f.gif" alt="">
+    </div>
+    <form #loginform="ngForm" (ngSubmit)="login()" class="col-4 card shadow m-5 w-25 p-5 ">
+       
+        <h3 class="text-primary text-center mt-3 mb-2">Login here</h3>
+        <input required [(ngModel)]="username" #Username="ngModel" name="username" type="text" class="form-control mt-4 mb-3" placeholder="username">
+        <div class="text-danger fw-bold my-2" *ngIf="Username.invalid&&Username.touched" >*Invalid username</div>
+        <input required pattern="[a-zA-Z]*" #Password="ngModel" [(ngModel)]="password" name="password" type="password" class="form-control mb-3" placeholder="password">
+        <div class="text-danger fw-bold my-2" *ngIf="Password.invalid&&Password.touched" >*Invalid password</div>
+        <div class=" text-center m-4">
+            <button type="submit" [disabled]="loginform.invalid"  class="btn btn-primary">sign in</button>
+        </div>
+
+
+    </form>
+    <div class="col-4"></div>
+</div>
